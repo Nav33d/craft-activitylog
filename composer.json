@@ -1,0 +1,42 @@
+{
+    "name": "nav33d/craft-activitylog",
+    "description": "Log activity inside Craft CMS control panel",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craftcms3",
+        "craft-plugin",
+        "activitylog"
+    ],
+    "support": {
+        "docs": "https://github.com/nav33d/craft-activitylog/blob/v1/README.md",
+        "issues": "https://github.com/nav33d/craft-activitylog/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Naveed Ziarab",
+            "homepage": "https://naveedziarab.co.uk/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "nav33d\\activitylog\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Activity Log",
+        "handle": "activitylog",
+        "schemaVersion": "1.0.0",
+        "hasCpSettings": true,
+        "hasCpSection": true,
+        "changelogUrl": "https://raw.githubusercontent.com/nav33d/craft-activitylog/v1/CHANGELOG.md",
+        "class": "nav33d\\activitylog\\ActivityLog"
+    }
+}

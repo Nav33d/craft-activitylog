@@ -1,0 +1,26 @@
+/*
+|
+| Name: Pagination
+| Description: Style for pagination component
+| State: Green
+|
+*/
+
+.al-pagination__item {
+  font-size: 16px;
+
+  padding: 6px 14px;
+
+  background: #ffffff;
+  color: #222;
+  border: 1px solid #f1f1f1;
+}
+
+.al-pagination__item--active {
+  background: #f1f1f1;
+}
+
+.al-pagination__arrows {
+  background: #ffffff;
+  color: #222;
+}

@@ -1,0 +1,60 @@
+{% extends "_layouts/cp" %}
+
+{% import "_includes/forms" as forms %}
+
+{% block content %}
+  <input type="hidden" name="action" value="activitylog/settings/save-plugin-settings">
+  <input type="hidden" name="pluginHandle" value="activitylog">
+
+    {{ redirectInput("activitylog/settings") }}
+    {% namespace "settings" %}
+        {{ forms.textField({
+          label: "Plugin name"|t("activitylog"),
+          instructions: "The public-facing name of the plugin"|t("activitylog"),
+          required: true,
+          id: "pluginName",
+          name: "pluginName",
+          value: settings.pluginName,
+          errors: settings.getErrors("pluginName"),
+        }) }}
+
+        {{ forms.lightswitchField({
+          label: "Log plugin events"|t("activitylog"),
+          instructions: "Should the plugin events *(installed, uninstalled, enabled, disabled)* be recorded?"|t("activitylog"),
+          id: "logPluginEvents",
+          name: "logPluginEvents",
+          on: settings.logPluginEvents,
+          errors: settings.getErrors("logPluginEvents"),
+        }) }}
+
+        {{ forms.lightswitchField({
+          label: "Log auth events"|t("activitylog"),
+          instructions: "Should the auth events *(login, logout)* be recorded?"|t("activitylog"),
+          id: "logAuthEvents",
+          name: "logAuthEvents",
+          on: settings.logAuthEvents,
+          errors: settings.getErrors("logAuthEvents"),
+        }) }}
+
+        {{ forms.lightswitchField({
+          label: "Log element events"|t("activitylog"),
+          instructions: "Should the element events *(create, update, delete)* be recorded?"|t("activitylog"),
+          id: "logElementEvents",
+          name: "logElementEvents",
+          on: settings.logElementEvents,
+          errors: settings.getErrors("logElementEvents"),
+        }) }}
+
+        {{ forms.textField({
+            label: "Logs store limit"|t("activitylog"),
+            instructions: "How many days of logs should be kept? Any logs older than the given days will be removed once *Prune* button in the logs section is clicked or using provided prune console command."|t("activitylog"),
+            id: "logsLimit",
+            name: "logsLimit",
+            size: 7,
+            maxlength: 4,
+            value: settings.logsLimit,
+            errors: settings.getErrors("logsLimit"),
+        }) }}
+      {% endnamespace %}
+
+{% endblock %}

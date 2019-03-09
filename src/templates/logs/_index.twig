@@ -1,0 +1,23 @@
+{% extends "_layouts/cp" %}
+
+{% block actionButton %}
+  <div class="buttons" id="activitylog-action-buttons">
+    {% if currentUser.can('activitylog:prune-logs') %}
+      <v-prune :logs-limit="{{ logsLimit }}">{{ "Prune logs"|t }}</v-prune>
+    {% endif %}
+    {% if currentUser.can('activitylog:delete-logs') %}
+      <v-delete-all>{{ "Delete All"|t }}</v-delete-all>
+    {% endif %}
+  </div>
+  {% if lastDeleted %}
+    <div class="w-full flex justify-end italic text-grey-dark">
+      Last deleted {{ lastDeleted['rows'] }} rows by {{ lastDeleted['user'] }} on {{ lastDeleted['time'] | date('F jS Y') }} at {{ lastDeleted['time'] | date('G:i:s') }} 
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div id="activitylog-app">
+  	<v-activitylog-logs></v-activitylog-logs>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+/*
+|
+| Name: Table
+| Description: Style for table component
+| State: Green
+|
+*/
+
+table.vuetable tbody td {
+  padding: 10px 0;
+}
+
+.activitylog-menubtn-asc::after {
+  content: 'downangle';
+}
+
+.activitylog-menubtn-desc::after {
+  content: 'upangle';
+}

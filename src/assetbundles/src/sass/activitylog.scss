@@ -1,0 +1,10 @@
+ @tailwind preflight;
+ @tailwind components;
+ 
+ @import './_swal.scss';
+ @import './_filter-bar.scss';
+ @import './_tables.scss';
+ @import './_pagination.scss';
+
+ @tailwind utilities;
+ 

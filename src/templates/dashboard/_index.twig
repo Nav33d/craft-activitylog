@@ -1,0 +1,29 @@
+{% extends "_layouts/cp" %}
+
+{% block actionButton %}
+  <div class="buttons" id="activitylog-action-buttons"></div>
+{% endblock %}
+
+{% block content %}
+  <div id="activitylog-app">
+    <v-confetti></v-confetti>
+    <div class="text-center mt-4">
+      <img src="{{ baseAssetsUrl ~ '/img/activitylog-icon.svg' }}" width="25%" height="auto"/>
+      <h2 class="mt-4 mb-4">Welcome to Activity Log</h2>
+      <p class="mb-4">
+        Activity Log records user's activity in the control panel.
+      </p>
+      <p class="mb-4">
+        We hope you find this plugin useful! For more information, please <a href="https://github.com/Nav33d/craft-activitylog" target="_blank" rel="noopener">read the documentation</a>.
+      </p>
+      <p>
+        {% if currentUser.can('activitylog:view-logs') %}
+          <a class="btn" href="{{ cpUrl('activitylog') }}">Logs</a>
+        {% endif %}
+        {% if currentUser.can('activitylog:settings') %}
+          <a class="btn" href="{{ cpUrl('activitylog/settings') }}">Settings</a>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+{% endblock %}

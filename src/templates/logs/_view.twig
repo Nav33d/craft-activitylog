@@ -1,0 +1,57 @@
+{% extends "_layouts/cp" %}
+
+{% block actionButton %}
+  <div class="buttons" id="activitylog-action-buttons"></div>
+{% endblock %}
+
+{% block content %}
+  <table class="data fullwidth">
+    <tbody>
+      <tr>
+        <th>Title</th>
+        {% if log.getElementLink() %}
+          <td><a href="{{ log.getElementLink() }}">{{ log.title }}</a></td>
+        {% else %}
+          <td>{{ log.title }}</td>
+        {% endif %}
+      </tr>
+      <tr>
+        <th>Action</th>
+        <td>{{ log.action | replace({'-': ' '}) | capitalize }}</td>
+      </tr>
+      {% if log.elementType %}
+        <tr>
+          <th>Type</th>
+          <td>{{ log.elementTypeDisplayName }}</td>
+        </tr>
+      {% endif %}
+      <tr>
+        <th>User</th>
+        <td><a class="go" href="{{ log.getUserLink() ?? null }}">{{ log.user.username }}</a></td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td>{{ log.dateCreated | date('F jS Y, G:i:s') }}</td>
+      </tr>
+      {% if log.ip %}
+        <tr>
+          <th>IP</th>
+          <td>{{ log.ip }}</td>
+        </tr>
+      {% endif %}
+      {% if log.userAgent %}
+        <tr>
+          <th>User agent</th>
+          <td>{{ log.userAgent }}</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <div id="activitylog-app" class="mt-2">
+    {% if log.log %}
+      <div>
+        <pre v-highlightjs><code class="php">{{ log.log }}</code></pre>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
