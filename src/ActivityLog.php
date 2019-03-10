@@ -111,6 +111,15 @@ class ActivityLog extends Plugin
     /**
      * @inheritdoc
      */
+    public function getSettingsResponse()
+    {
+        Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('activitylog/settings'));
+    }
+
+
+    /**
+     * @inheritdoc
+     */
     public function getCpNavItem()
     {
         $subNavs = [];
