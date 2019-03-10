@@ -25,7 +25,7 @@ composer require nav33d/craft-activitylog
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Activity Log.
 
 ## Overview
-Activity Log will allow users to record some of the events in the Craft CMS control panel. It will record some of the following events:
+Activity Log records some of the events in the Craft CMS control panel. It will record the following events:
 
 - **Plugin events:** It will record when a plugin is installed, uninstalled, enabled or disabled.
 - **Auth events:** It will record when a user logs in or logs out.
@@ -43,14 +43,13 @@ Settings allow user to configure Activity Log.
 - **Logs store limit** How many days of logs should be kept? Any logs older than the given days will be removed once Prune button in the logs section is clicked or using provided prune console command.
 
 ## Logs
-Once the plugin is installed and enabled it will start recording user's activity based on the settings. Once there are logs records you can view them in Logs section as well as filter and sort them.
+Once the plugin is installed and enabled it will start recording user's activity based on the settings. Once there are events recorded you can view them in Logs section as well as filter and sort them.
 
 ![Screenshot](resources/screenshots/activitylog-logs.png)
 
 ![Screenshot](resources/screenshots/activitylog-view-log.png)
 
 ### Filters
-
 Following filters are provided:
 
 ![Screenshot](resources/screenshots/activitylog-filters.png)
