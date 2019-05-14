@@ -12,6 +12,7 @@
 namespace nav33d\activitylog\models;
 
 use Craft;
+use craft\helpers\DateTimeHelper;
 use DateTime;
 use craft\base\Model;
 use craft\elements\Asset;
@@ -197,7 +198,9 @@ class ActivityLog extends Model
         $model->userAgent               = $record->userAgent;
         $model->siteId                  = $record->siteId;
         $model->userId                  = $record->userId;
-        $model->dateCreated             = $record->dateCreated;
+        $model->dateCreated             =
+            DateTimeHelper::toDateTime($record->dateCreated, false, true)
+                ->format('Y-m-d H:i:s');
 
         return $model;
     }

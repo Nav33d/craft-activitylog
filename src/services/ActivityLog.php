@@ -13,6 +13,7 @@ namespace nav33d\activitylog\services;
 
 use Craft;
 use craft\db\Query;
+use craft\helpers\DateTimeHelper;
 use craft\helpers\Db;
 use craft\helpers\UrlHelper;
 
@@ -67,6 +68,7 @@ class ActivityLog extends Component
         foreach( $logs as &$log )
         {
             $log['viewLink'] = UrlHelper::cpUrl('activitylog/'.$log['id']);
+            $log['dateCreated'] = DateTimeHelper::toDateTime($log['dateCreated'], false, true)->format('Y-m-d H:i:s');
         }
         
         $data['data'] = $logs;
