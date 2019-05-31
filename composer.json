@@ -2,7 +2,7 @@
     "name": "nav33d/craft-activitylog",
     "description": "Log activity inside Craft CMS control panel",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",
